@@ -58,7 +58,16 @@ class GameScene extends Phaser.Scene {
 				card.disableBody(true,true);
 				if (this.firstClick){
 					if (this.firstClick.card_id !== card.card_id){
-						this.score -= 20;
+						//Implementem la dificultat en els punts
+						if (exp.diff() == "easy"){
+							this.score -= 10;
+						}
+						else if (exp.diff() == "normal"){
+							this.score -= 20;
+						}
+						else if (exp.diff() == "hard"){
+							this.score -= 30;
+						}
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						card.enableBody(false, 0, 0, true, true);
 						if (this.score <= 0){
@@ -68,7 +77,7 @@ class GameScene extends Phaser.Scene {
 					}
 					else{
 						this.correct++;
-						if (this.correct >= 2){
+						if (this.correct >= exp.card()){ //Mirem que els correctes siguin el n de cartes
 							alert("You Win with " + this.score + " points.");
 							loadpage("../");
 						}
