@@ -56,5 +56,11 @@ var options = function () {
 	};
 }();
 
-
-
+var exp = {
+	get card(){
+		return options.getNumOfCards;
+	},
+	get diff(){
+		return options.getDificulty;
+	}
+}
