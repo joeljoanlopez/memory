@@ -17,8 +17,15 @@ class GameScene extends Phaser.Scene {
 		this.load.image('to', '../resources/to.png');
 	}
 	
-    create (){	
-		let arraycards = ['co', 'sb', 'co', 'sb', 'cb', 'cb', 'so', 'so'];
+    create (){
+		let arraycards = ['co', 'sb', 'co', 'sb'];
+		if (exp.card() >= 3){
+			arraycards = ['co', 'sb', 'co', 'sb', 'cb', 'cb'];
+			if (exp.card() == 4){
+				arraycards = ['co', 'sb', 'co', 'sb', 'cb', 'cb', 'so', 'so'];
+			}
+		}
+		Phaser.Utils.Array.Shuffle(arraycards);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 
 		this.add.image(250, 300, arraycards[0]);
