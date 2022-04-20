@@ -75,8 +75,10 @@ class GameScene extends Phaser.Scene {
 						else if (exp.diff() == "hard"){
 							this.score -= 30;
 						}
-						this.firstClick.enableBody(false, 0, 0, true, true);
-						card.enableBody(false, 0, 0, true, true);
+
+						var timedEvent = this.time.delayedCall(1000,hide(this.firstClick, card), [], this);
+						console.log(timedEvent);
+
 						if (this.score <= 0){
 							alert("Game Over");
 							loadpage("../");
@@ -92,10 +94,16 @@ class GameScene extends Phaser.Scene {
 					this.firstClick = null;
 				}
 				else{
-					this.firstClick = card;
+					this.firstClick = card, 1000;
 				}
 			}, card);
 		});
+
+		function hide (click1, click2){
+			click1.enableBody(false, 0, 0, true, true);
+			click2.enableBody(false, 0, 0, true, true);
+			console.log("esperem");
+		}
 	}
 	
 	update (){	}
