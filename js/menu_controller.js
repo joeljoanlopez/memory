@@ -10,6 +10,10 @@ function phaser_game(){
 	loadpage("./html/phasergame.html");
 }
 
+function infinite_game(){
+	loadpage("./html/infinite.html");
+}
+
 function leaderboard(){
 	loadpage("./html/leaderboard.html");
 }
