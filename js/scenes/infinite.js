@@ -5,7 +5,7 @@ class Infinite extends Phaser.Scene {
         this.firstClick = null;
         this.score = 100;
         this.correct = 0;
-        this.nGame = 1;
+        this.nGame = 0;
         this.finished = false;
     }
 
@@ -21,29 +21,45 @@ class Infinite extends Phaser.Scene {
 
     create() {
         console.log(nCards);
-        nCards = this.nGame % 3 + 2;
-        let arraycards = ['co', 'sb', 'co', 'sb', 'cb', 'cb', 'so', 'so'];
+        var nCards = this.nGame % 3 + 2;
+
+        let arraycards = ['co', 'sb', 'co', 'sb'];
+		if (nCards >= 3){
+			arraycards = ['co', 'sb', 'co', 'sb', 'cb', 'cb'];
+			if (nCards == 4){
+				arraycards = ['co', 'sb', 'co', 'sb', 'cb', 'cb', 'so', 'so'];
+			}
+		}
         Phaser.Utils.Array.Shuffle(arraycards);
         this.cameras.main.setBackgroundColor(0xBFFCFF);
 
         this.add.image(250, 300, arraycards[0]);
-        this.add.image(350, 300, arraycards[1]);
-        this.add.image(450, 300, arraycards[2]);
-        this.add.image(550, 300, arraycards[3]);
-        this.add.image(350, 450, arraycards[4]);
-        this.add.image(450, 450, arraycards[5]);
-        this.add.image(250, 450, arraycards[6]);
-        this.add.image(550, 450, arraycards[7]);
-        this.cards = this.physics.add.staticGroup();
-
-        this.cards.create(250, 300, 'back');
-        this.cards.create(350, 300, 'back');
-        this.cards.create(450, 300, 'back');
-        this.cards.create(550, 300, 'back');
-        this.cards.create(350, 450, 'back');
-        this.cards.create(450, 450, 'back');
-        this.cards.create(250, 450, 'back');
-        this.cards.create(550, 450, 'back');
+		this.add.image(350, 300, arraycards[1]);
+		this.add.image(450, 300, arraycards[2]);
+		this.add.image(550, 300, arraycards[3]);
+		if (nCards >= 3){
+			this.add.image(350, 450, arraycards[4]);
+			this.add.image(450, 450, arraycards[5]);
+			if (nCards == 4){
+				this.add.image(250, 450, arraycards[6]);
+				this.add.image(550, 450, arraycards[7]);
+			}
+		}
+		
+		this.cards = this.physics.add.staticGroup();
+		
+		this.cards.create(250, 300, 'back');
+		this.cards.create(350, 300, 'back');
+		this.cards.create(450, 300, 'back');
+		this.cards.create(550, 300, 'back');
+		if (nCards >= 3){
+			this.cards.create(350, 450, 'back');
+			this.cards.create(450, 450, 'back');
+			if (nCards == 4){
+				this.cards.create(250, 450, 'back');
+				this.cards.create(550, 450, 'back');
+			}
+		}
 
         let i = 0;
         this.cards.children.iterate((card) => {
@@ -91,8 +107,9 @@ class Infinite extends Phaser.Scene {
 
     update() {
         if (this.finished == true) {
-            this.scene.create();
+            this.scene.restart();
             this.finished = false;
+            this.correct = 0;
             this.score = 100;
             this.nGame += 1;
         }
