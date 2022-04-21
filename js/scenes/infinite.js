@@ -78,6 +78,7 @@ class Infinite extends Phaser.Scene {
 
                         if (this.score <= 0) {
                             alert("Game Over");
+                            insert(this.nGame);
                             loadpage("../");
                         }
                     }
@@ -112,7 +113,7 @@ class Infinite extends Phaser.Scene {
             this.correct = 0;
             this.score = 100;
             this.nGame += 1;
+            console.log(hiscores);
         }
     }
 }
-

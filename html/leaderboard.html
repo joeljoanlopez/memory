@@ -1,11 +1,23 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="../js/menu_controller.js"></script>
+    <script src="../js/loader.js"></script>
+    <script src="../js/leaderboard_controller.js"></script>
+    <title>Ranquing de puntuacions</title>
 </head>
+
 <body>
-    <a class="menu-object" href="../">GoToMenu</a>
+    <h1 onload="showHiScores()">Top 5 puntuacions</h1>
+    <div>
+        <p id="top1"></p>
+        <p id="top2"></p>
+        <p id="top3"></p>
+        <p id="top4"></p>
+        <p id="top5"></p>
+    </div>
+    <button class="menu-object" onclick="menu()">GoToMenu</button>
 </body>
+
 </html>
