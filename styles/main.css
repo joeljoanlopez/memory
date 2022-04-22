@@ -37,3 +37,14 @@ button.menu-object:hover:not(:active){
 	height: 85px;
 }
 
+#whosGame {
+	text-align: center;
+}
+
+#game_area{
+	text-align: center;
+}
+
+#gameNum{
+	text-align: center;
+}

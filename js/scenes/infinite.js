@@ -31,7 +31,7 @@ class Infinite extends Phaser.Scene {
 			}
 		}
         Phaser.Utils.Array.Shuffle(arraycards);
-        this.cameras.main.setBackgroundColor(0xBFFCFF);
+        this.cameras.main.setBackgroundColor(0xFFFFFF);
 
         this.add.image(250, 300, arraycards[0]);
 		this.add.image(350, 300, arraycards[1]);
@@ -73,12 +73,13 @@ class Infinite extends Phaser.Scene {
                         //Implementem la dificultat en els punts
                         this.score -= this.nGame * 5;
 
-                        var timedEvent = this.time.delayedCall(1000, hide(this.firstClick, card), [], this);
-                        console.log(timedEvent);
+                        // var timedEvent = this.time.delayedCall(1000, hide(this.firstClick, card), [], this);
+                        this.firstClick.enableBody(false, 0, 0, true, true);
+                        card.enableBody(false, 0, 0, true, true);
 
                         if (this.score <= 0) {
                             alert("Game Over");
-                            insert(this.nGame);
+                            // insert(this.nGame);
                             loadpage("../");
                         }
                     }
@@ -98,11 +99,11 @@ class Infinite extends Phaser.Scene {
             }, card);
         });
 
-        function hide(click1, click2) {
-            click1.enableBody(false, 0, 0, true, true);
-            click2.enableBody(false, 0, 0, true, true);
-            console.log("esperem");
-        }
+        // function hide(click1, click2) {
+        //     click1.enableBody(false, 0, 0, true, true);
+        //     click2.enableBody(false, 0, 0, true, true);
+        //     console.log("esperem");
+        // }
 
     }
 
@@ -115,5 +116,11 @@ class Infinite extends Phaser.Scene {
             this.nGame += 1;
             console.log(hiscores);
         }
+        document.getElementById("gameNum").innerHTML = "Punts: " + this.nGame;
     }
+}
+
+function showName() {
+	nom = prompt("User name");
+	document.getElementById("whosGame").innerHTML = "Joc de " + nom;
 }

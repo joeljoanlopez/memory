@@ -1,17 +1,26 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-	<head>
-		<link rel="stylesheet" href="../styles/main.css">
-		<script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
-		<script src="../js/loader.js"></script>
-		<script src="../js/scenes/game.js"></script>
-		<script src="../js/phasergame_controller.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-		<script src="../js/options.js"></script>
-		<title> My first game - PhaserIO Game </title>
-	</head>
-	<body>
-		<div id = "game_area"> </div>
-	</body>
-</html>
 
+<head>
+	<link rel="stylesheet" href="../styles/main.css">
+	<script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+	<script src="../js/loader.js"></script>
+	<script src="../js/scenes/game.js"></script>
+	<script src="../js/phasergame_controller.js"></script>
+	<script src="../js/nameNGameController.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+	<script src="../js/options.js"></script>
+	<title> My first game - PhaserIO Game </title>
+</head>
+
+<body onload="showName()">
+	<p class="menu-object" id="title">Normal GameMode</p>
+	<h1 id="whosGame"></h1>
+	<div id="game_area"> </div>
+	<div>
+		<p id="cardNum"></p>
+		<p id="difficulty"></p>
+	</div>
+</body>
+
+</html>

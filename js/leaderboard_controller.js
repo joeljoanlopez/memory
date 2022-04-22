@@ -21,7 +21,7 @@ console.log(hiscores);
 var nom;
 
 function infinite_game() {
-    nom = prompt("User name");
+    
     loadpage("./html/infinite.html");
 }
 

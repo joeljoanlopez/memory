@@ -8,16 +8,19 @@
 	<script src="../js/loader.js"></script>
 	<script src="../js/scenes/infinite.js"></script>
 	<script src="../js/infinite_controller.js"></script>
+	<script src="../js/nameNGameController.js"></script>
 	<script src="../js/options.js"></script>
 	<script src="../js/leaderboard_controller.js"></script>
 	<title> Infinite Game Mode </title>
 </head>
 
-<body>
+<body onload="showName()">
 	<div>
+		<p class="menu-object" id="title">Infinite GameMode</p>
 		<h1 id="whosGame"></h1>
 	</div>
-	<div id="game_area"> </div>
+	<div id="game_area"></div>
+	<div id="gameNum"></div>
 </body>
 
 </html>
